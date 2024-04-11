@@ -394,3 +394,5 @@ def ResetTheGallows(data:dict, userId:str, word:str, isWin:bool):
 
 if __name__ == "__main__":
     bot.infinity_polling()
+
+    print("Hello")
