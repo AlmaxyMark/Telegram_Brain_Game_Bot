@@ -88,7 +88,7 @@ nameMoney = "Сияны"
 bot = telebot.TeleBot(token)
 
 def SaveData():
-    with open("data.json", "w", encoding="utf-8") as f:
+    with open("C:\Users\Mi\Downloads\Telegram Desktop\Test (6)\Telebot\data.json", "w", encoding="utf-8") as f:
         json.dump(data, f, indent = 4, ensure_ascii = False)
 
 
@@ -120,7 +120,6 @@ def start(message):
 
     boardkeyboard.add(but1, but2, but3)
     bot.send_message(userId, random.choice(greetings), reply_markup = boardkeyboard)
-    bot.send_message(userId, "Привет у тебя есть " + nameMoney + " " + str(data[userId]["Money"]))
 
     SaveData()
 
@@ -132,7 +131,7 @@ def handle_web_app_data(message):
     site_data = message.web_app_data.data
     user_id = str(message.from_user.id)
     print(site_data)
-    dataWeb =  HandlerWeb(site_data)
+    dataWeb = HandlerWeb(site_data)
     if dataWeb["isWin"] != "false":
         data[user_id]["GuessTheWord"]["listRightAnswer"].append(dataWeb["word"])
         data[user_id]["Money"] += int(dataWeb["isGift"])
